@@ -4,6 +4,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ListCoursesComponent } from './course/list-courses/list-courses.component';
+import { AuthGuard } from './auth.guard';
 
 const routes:Routes=[
     {
@@ -13,11 +14,19 @@ const routes:Routes=[
     },
     {
         path:'login',
-        component:LoginComponent
+        component:LoginComponent,
+        canActivate:[AuthGuard],
+        data:{
+            isLogged:false
+        }
     },
     {
         path:'register',
-        component:RegisterComponent
+        component:RegisterComponent,
+        canActivate :[AuthGuard],
+        data:{
+            isLogged:false
+        }
     },
     {
         path:'**',

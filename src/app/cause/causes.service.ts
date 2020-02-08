@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ICause } from './shared/interfaces/cause';
 import { Subscriber } from 'rxjs';
+import { ICause } from '../shared/interfaces/cause';
 
 
 @Injectable({

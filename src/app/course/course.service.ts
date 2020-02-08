@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ICourse } from './shared/interfaces/course';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ICause } from './shared/interfaces/cause';
+import { ICourse } from '../shared/interfaces/course';
+
 
 const appKey = "kid_r1cvWi9zI" 
 const appSecret = "ac02ed802c4b49b88056a139aef774cb" 
@@ -18,13 +18,14 @@ export class CourseService {
 
 
   constructor(private http:HttpClient) { }
-  addBook(book:BookModel): Observable<Object> {
+
+  /* addBook(book:BookModel): Observable<Object> {
     const body = JSON.stringify(book);
     return this.http.post(`https://baas.kinvey.com/appdata/${appKey}/books`, body, {
       headers: new HttpHeaders().set('Authorization', 'Kinvey ' + localStorage.getItem('authtoken'))
         .set('Content-Type', 'application/json')
     });
-  }
+  } */
 
   createCourse(course:ICourse) {
     const body = JSON.stringify(course);

@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { DetailCourseComponent } from './detail-course/detail-course.component';
 import { ListCoursesComponent } from './list-courses/list-courses.component';
+import { AuthGuard } from '../auth.guard';
 
 
 const routes: Routes = [
@@ -11,12 +12,16 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        component:ListCoursesComponent
+        component:ListCoursesComponent,
+        
       },
       {
         path: 'create',
         component: CreateCourseComponent,
-       
+        canActivate :[AuthGuard],
+        data:{
+          isLogged:true
+        }
       },
       {
         path: 'list',
@@ -26,7 +31,10 @@ const routes: Routes = [
       {
         path: 'detail',
         component: DetailCourseComponent,
-        
+        canActivate :[AuthGuard],
+        data:{
+          isLogged:true
+        }
       }
     ]
   }

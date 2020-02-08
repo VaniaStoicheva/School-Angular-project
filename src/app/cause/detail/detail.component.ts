@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CausesService } from 'src/app/causes.service';
 import { ICause } from 'src/app/shared/interfaces/cause';
+import { CausesService } from '../causes.service';
 
 @Component({
   selector: 'app-cause-detail',
