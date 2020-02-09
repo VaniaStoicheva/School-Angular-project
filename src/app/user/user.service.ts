@@ -21,6 +21,10 @@ export class UserService {
     this.currentUser={username,password}
   }
 
+  register(username:string, password:string){
+    localStorage.setItem('current-user', JSON.stringify({username,password}));
+    this.currentUser={username,password}
+  }
   logout(){
     this.currentUser=null;
     localStorage.removeItem('current-user')
