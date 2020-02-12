@@ -1,18 +1,55 @@
 
 <h1>Create Course</h1>
             <div class="form">
-               <!--<form (ngSubmit)="createCourse()" #addBookForm="ngForm">  --> 
-                <form action='/course/create' method="POST">
+               
+                <form #createForm="ngForm" (ngSubmit)="handleCreate(createForm.value)">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" />
+                    <input 
+                    type="text" id="name" 
+                    name="name"
+                    #nameInput="ngModel"
+                    minlength="3"
+                    required
+                    ngModel>
+                    <p class="error-message" *ngIf="nameInput.invalid && nameInput.touched">Please enter valid course name!</p>
                     <label for="name">Teachers</label>
-                    <input type="text" id="teacher" name="teacher"/>
+                    <input 
+                    type="text" id="teacher" 
+                    name="teacher"
+                    #teacherInput="ngModel"
+                    required
+                    ngModel
+                    >
+                    <p class="error-message" *ngIf="teacherInput.invalid && teacherInput.touched">Please enter valid teacher name!</p>
                     <label for="name">Duration</label>
-                    <input type="text" id="duration" name="duration"/>
+                    <input 
+                    type="number" id="duration" 
+                    name="duration"
+                    #durationInput="ngModel"
+                    required
+                    ngModel
+                    >
+                    <p class="error-message" *ngIf="durationInput.invalid && durationInput.touched">Please enter valid number for duration!</p>
                     <label for="name">Description</label>
-                    <textarea id="descroption" name="description"></textarea>
+                    <textarea 
+                    id="descroption" 
+                    name="description"
+                    #descriptionInput="ngModel"
+                    required
+                    ngModel
+                    >
+                    </textarea>
+                    <p class="error-message" *ngIf="descriptionInput.invalid && descriptionInput.touched">Please enter description!</p>
                     <label for="image">ImageUrl</label>
-                    <input type="text" id="imgURL" name="imgURL"/>
-                    <input type="submit" value="Create"/>
+                    <input 
+                    type="text" id="imgURL" 
+                    name="imgURL"
+                    #imgUrInput="ngModel"
+                    pattern="https:?\/\/.*"
+                    required
+                    ngModel
+                    >
+                    <p class="error-message" *ngIf="imgUrInput.invalid && imgUrInput.touched">Please enter image URL!</p>
+                    <button class="createButton" [disabled]="createForm.invalid" >Create</button>
                 </form>
             </div>

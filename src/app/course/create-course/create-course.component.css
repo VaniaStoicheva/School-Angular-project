@@ -53,6 +53,21 @@ div.form {
     width: 36%;
     margin: auto;
 }
+.createButton:hover {
+    background-color: #607588;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 20px;
+    width: 36%;
+    margin: auto;
+}
+.createButton {
+   
+    border-radius: 5px;
+    padding: 20px;
+    width: 36%;
+    margin: auto;
+}
 
 span.error {
     animation: fadeOut 1s forwards;

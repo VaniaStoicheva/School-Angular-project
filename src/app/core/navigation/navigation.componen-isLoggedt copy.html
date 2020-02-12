@@ -8,19 +8,28 @@
             
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a  routerLink="/course/create">Create course</a>
+                    <a <!-- *ngIf="isLogged"  -->
+                    routerLink="/course/create">Create course</a>
                 </li>
                 <li>
-                    <a  routerLink="/course/detail">Detail course</a>
+                    <a 
+                    <!-- *ngIf="isLogged"  -->
+                    routerLink="/course/detail">Detail course</a>
                 </li>
                 <li>
-                    <a routerLink="/user/profile">Profile user</a>
+                    <a 
+                    <!-- *ngIf="isLogged"  -->
+                    routerLink="/user/profile">Profile user</a>
                 </li>
                 <li>
-                    <a routerLink="/login">Login</a>
+                    <a 
+                    <!-- *ngIf="!isLogged"  -->
+                    routerLink="/login">Login</a>
                 </li>
                 <li>
-                    <a  routerLink="/register">Register</a>
+                    <a 
+                    <!-- *ngIf="!isLogged"  -->
+                    routerLink="/register">Register</a>
                 </li>
                 <li>
                     <a (click)="logout()" class="float-right custom-button btn" >Logout</a>
@@ -28,7 +37,9 @@
             </ul>
            
         </div>
-      <!--   <p class="welcom" >Hi: {{currentUser.currentUser.username}}</p> -->
+        <p
+        <!-- *ngIf="isLogged"  -->
+        class="welcom" >Hi: {{currentUser.username}}</p>
     </div>
 </nav>
 <div class=" w-100">

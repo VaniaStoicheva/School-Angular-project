@@ -4,6 +4,7 @@ import {CreateCourseComponent} from './create-course/create-course.component';
 import { DetailCourseComponent } from './detail-course/detail-course.component';
 import { ListCoursesComponent } from './list-courses/list-courses.component';
 import { CourseRoutingModule } from './course-routin.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,8 @@ import { CourseRoutingModule } from './course-routin.module';
   ],
   imports: [
     CommonModule,
-    CourseRoutingModule
+    CourseRoutingModule,
+    FormsModule
   ],
  exports:[ListCoursesComponent]
 })

@@ -1,6 +1,6 @@
 export interface ICourse {
-    _id: string;
-    course: string;
+    
+    name: string;
     description: string;
     teacher: string;
     duration: number;
