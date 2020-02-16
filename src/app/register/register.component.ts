@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../user/authentication.service';
 import { IUser } from '../shared/interfaces/user';
-import { createOfflineCompileUrlResolver } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-register',
@@ -32,10 +31,12 @@ export class RegisterComponent implements OnInit {
       this.successfulRegister(data);
     },
     err => {
+      
+      
       this.registerFail = true;
     
     })
-    this.router.navigate(['']);
+    
   }
 
 
@@ -48,5 +49,6 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem('username', data['username']);
     this.registerFail = false;
     this.router.navigate(['/']);
+    
   }
 }

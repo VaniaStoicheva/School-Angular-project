@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,23 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  public username:string
   get currentUser(){
     return this.userService.currentUser;
   }
   get isLogged(){
-    return this.userService.isLogged;
+    return this.authService.isLoggedIn;
   }
 
   constructor(
+    private authService:AuthenticationService,
     private userService:UserService,
-    private router:Router
-    ) { }
+    private router:Router,
+    
+    ) { 
+      this.username = localStorage.getItem('username');
+    }
 
   ngOnInit() {
   }
 
   logout(){
-    this.userService.logout();
-    this.router.navigate([''])
+    this.authService.logout()
+    .subscribe(data => {
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    })
   }
 }

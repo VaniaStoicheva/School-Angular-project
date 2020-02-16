@@ -4,8 +4,8 @@
     <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
         <div class="form-group">
             <label for="email">Email address</label>
-            <input  #emailInput="ngModel" type="text" name="email" id="email" class="form-control" placeholder="john.doe@domain.bg"
-            [pattern]="emailRegex"
+            <input  #emailInput="ngModel" type="text" name="username" id="email" class="form-control" placeholder="john.doe@domain.bg"
+           
             required
             ngModel>
             <!-- {{emailInput.errors | json}} -->
@@ -22,6 +22,9 @@
 
         <button [disabled]="loginForm.invalid" class="btn btn-success" >Login</button>
     </form>
+    <div *ngIf="loginFail" class="alert alert-danger">
+        Failed Login!
+    </div>
     <p>Don't have account yet? <a routerLink="/register">Register</a>.</p>
 </div>
 

@@ -15,6 +15,7 @@ import { CauseModule } from './cause/cause.module';
 import { UserModule } from './user/user.module';
 import { CourseModule } from './course/course.module';
 import { SharedModule } from './shared/shared.module';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     NotFoundComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
    
   ],
   imports: [

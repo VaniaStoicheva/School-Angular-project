@@ -14,27 +14,31 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
 export class AuthenticationService {
 
   private currentAuthtoken : string;
-  
-  currentUser:{username:string; password:string}=null;
 
-  get isLogged(){
-    return !!this.currentUser;
+  isLoggedIn() {
+    let authtoken : string = localStorage.getItem('authtoken');
+
+    return authtoken === this.currentAuthtoken;
   }
 
-  
+  get authtoken() {
+    return this.currentAuthtoken;
+  }
 
+  set authtoken(value : string) {
+    this.currentAuthtoken = value;
+  }
+  
   constructor(
     private http : HttpClient
-  ) { 
-    const currentUser=localStorage.getItem('current-user');
-    this.currentUser=currentUser ? JSON.parse(currentUser) : null;
-  }
+  ) { }
 
 
   login(login : IUser) {
     return this.http.post(
       loginUrl,
       JSON.stringify(login),
+     
       {
         headers: this.createAuthHeaders('Basic')
       }
@@ -51,16 +55,6 @@ export class AuthenticationService {
     )
   }
 
-  /* register(registerModel : RegisterModel) : Observable<Object> {
-    return this.http.post(
-      registerUrl, 
-      JSON.stringify(registerModel),
-      { 
-        headers: this.createAuthHeaders('Basic')
-      }
-    )
-  } */
-
   logout() {
     return this.http.post(
       logoutUrl,
@@ -71,19 +65,7 @@ export class AuthenticationService {
     )
   }
 
-  isLoggedIn() {
-    let authtoken : string = localStorage.getItem('authtoken');
-
-    return authtoken === this.currentAuthtoken;
-  }
-
-  get authtoken() {
-    return this.currentAuthtoken;
-  }
-
-  set authtoken(value : string) {
-    this.currentAuthtoken = value;
-  }
+  
 
   private createAuthHeaders(type : string) : HttpHeaders {
     if (type === 'Basic') {

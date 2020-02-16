@@ -38,13 +38,14 @@ export class CourseService {
     });
   }
 
-  getCourse() {
+  getCourses() {
     const body = '';
     
     return this.http.get<ICourse[]>(`https://baas.kinvey.com/appdata/${appKey}/courses`)
-    .subscribe(courses=>{
+     .subscribe(courses=>{
       this.courses=courses
-    })
+      //console.log(courses)
+    }) 
   }
    /* loadCourse(id?:number){
     this.http.get<ICause[]>(`http://localhost:3000/causes${id?`/($id}`:'')`).subscribe(causes=>{

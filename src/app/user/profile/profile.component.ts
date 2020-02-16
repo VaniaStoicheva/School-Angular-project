@@ -7,7 +7,7 @@ import { passwordMatch } from 'src/app/shared/validators/directives/password-mat
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css','../../../error-styles.scss']
 })
 export class ProfileComponent implements OnInit {
 
@@ -23,9 +23,9 @@ export class ProfileComponent implements OnInit {
     {
       this.form=this.fb.group({
         email:['',[Validators.pattern(new RegExp('[A-Z0-9a-z._%+-`]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}')),Validators.required]],
-        password:this.fb.group({
-          password:['',Validators.required],
-          rePassword:['',Validators.required]
+        passwords:this.fb.group({
+          password:['',[Validators.required]],
+          rePassword:['',[Validators.required]]
         },{
           validators:[passwordMatch]
         })

@@ -7,35 +7,43 @@
                         <input 
                         ngModel 
                         #emailInput="ngModel" 
-                        type="text" name="email" id="email" class="form-control" placeholder="john.doe@domain.bg"
+                        type="text" name="username" id="email" class="form-control" placeholder="john.doe@domain.bg"
                         [pattern]="emailRegex"
                         required
                         >
                         <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email!</p>
                     </div>
-                    <div #passwordGroups="ngModelGroup" ngModelGroup="passwords" appPasswordMatch>
+                    
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input  
+                        <input 
                         ngModel
-                        [ngClass]="{ 'ng-invalid': passwordGroups.invalid, 'ng-touched': passwordGroups.touched }" 
-                        type="password" name="password" id="password" class="form-control" placeholder="************"
-                        minlength="3"
-                        required 
-                        >
+                       #passwordInput="ngModel"
+                         type="password" name="password" id="password" class="form-control"  placeholder="************"
+                         minlength="3"
+                         required>
+                         <p class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter valid password!</p>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" appPasswordMatch>
                         <label for="rePassword">Re-Password</label>
                         <input 
                         ngModel
-                        [ngClass]="{ 'ng-touched': passwordGroups.invalid, 'ng-touched': passwordGroups.touched }" 
+                       #rePasswordInput="ngModel"
                          type="password" name="rePassword" id="rePassword" class="form-control"  placeholder="************"
+                        
                          required>
+                         <p class="error-message" *ngIf="rePasswordInput.invalid && rePasswordInput.touched && error" >Please enter valid password!</p>
                     </div>
-                    <p class="error-message" *ngIf="passwordGroups.touched && passwordGroups.invalid">Password don`t match!</p>
-                    </div>
+                
+                    
                     <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Register</button>
                 </form>
+                <div *ngIf="registerSuccess" class="alert alert-success">
+                    Successfull Registered {{registeredUser}}!
+                  </div>
+                  <div *ngIf="registerFail" class="alert alert-danger">
+                    User already exists!
+                </div>
                 <p>Already Registered? <a routerLink="/login">Login</a>.</p>
             </div>
         
