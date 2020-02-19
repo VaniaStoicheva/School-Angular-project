@@ -61,6 +61,7 @@ main {
 
 div.container {
     display: block;
+    margin: 8px;
 }
 
 h1 {
@@ -74,6 +75,7 @@ div.cube {
     background: white;
     width: 23%;
     vertical-align: top;
+    margin: 8px;
 }
 
 div.cube:hover p.name {

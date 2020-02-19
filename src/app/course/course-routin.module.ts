@@ -29,7 +29,7 @@ const routes: Routes = [
        
       },
       {
-        path: 'detail',
+        path: 'detail/:id',
         component: DetailCourseComponent,
        /*  canActivate :[AuthGuard],
         data:{

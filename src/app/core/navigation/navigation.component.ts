@@ -23,10 +23,11 @@ export class NavigationComponent implements OnInit {
     private router:Router,
     
     ) { 
-      this.username = localStorage.getItem('username');
+     
     }
 
   ngOnInit() {
+    this.username = localStorage.getItem('username');
   }
 
   logout(){

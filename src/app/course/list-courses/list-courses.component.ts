@@ -12,8 +12,9 @@ import { Observable } from 'rxjs';
 export class ListCoursesComponent implements OnInit {
  
   courses$:Observable<ICourse[]>;
-  courses:ICourse[];
+  //courses:ICourse[];
 username:string;
+public courses;
 
   constructor(
     private courseService:CourseService,
@@ -22,16 +23,19 @@ username:string;
    }
 
   ngOnInit() {
-  // this.courses$=this.courseService.getCourses()
+    this.courseService.getAllCourses()
+    .subscribe(coursArr=>{
+      this.courses=coursArr
+  //this.courses$=this.courseService.getCourses()
   
-  
+    })
   }
-listCourses(){
+/* listCourses(){
   return this.courseService.getCourses()
   /* .subscribe(courses=>{
     this.courses=courses
     console.log(courses)
-  }) */
-}
+  }) 
+} */
   
 }

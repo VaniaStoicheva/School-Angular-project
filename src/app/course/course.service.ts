@@ -21,14 +21,7 @@ export class CourseService {
 
   constructor(private http:HttpClient) { }
 
-  /* addBook(book:BookModel): Observable<Object> {
-    const body = JSON.stringify(book);
-    return this.http.post(`https://baas.kinvey.com/appdata/${appKey}/books`, body, {
-      headers: new HttpHeaders().set('Authorization', 'Kinvey ' + localStorage.getItem('authtoken'))
-        .set('Content-Type', 'application/json')
-    });
-  } */
-
+ 
   createCourse(course:ICourse) {
     const body = JSON.stringify(course);
     
@@ -38,18 +31,17 @@ export class CourseService {
     });
   }
 
-  getCourses() {
-    const body = '';
-    
-    return this.http.get<ICourse[]>(`https://baas.kinvey.com/appdata/${appKey}/courses`)
-     .subscribe(courses=>{
-      this.courses=courses
-      //console.log(courses)
-    }) 
+   getAllCourses(){
+    return this.http.get(`https://baas.kinvey.com/appdata/${appKey}/courses`, {
+      headers: new HttpHeaders().set('Authorization', 'Kinvey ' + localStorage.getItem('authtoken'))
+        .set('Content-Type', 'application/json')
+    });
   }
-   /* loadCourse(id?:number){
-    this.http.get<ICause[]>(`http://localhost:3000/causes${id?`/($id}`:'')`).subscribe(causes=>{
-    this.courses=causes;
-    })
-   } */
+
+  getById(id : number)  {
+    return this.http.get(`https://baas.kinvey.com/appdata/${appKey}/courses/`+id, {
+      headers: new HttpHeaders().set('Authorization', 'Kinvey ' + localStorage.getItem('authtoken'))
+        .set('Content-Type', 'application/json')
+    });
+  } 
 }

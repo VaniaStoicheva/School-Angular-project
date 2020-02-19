@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-detail-course',
@@ -8,10 +9,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailCourseComponent implements OnInit {
 
-  constructor(private actvateRoute:ActivatedRoute) { }
+  public course;
+
+  constructor(private actvateRoute:ActivatedRoute,
+    private courseService:CourseService,
+    ) { }
 
   ngOnInit() {
-    console.log(this.actvateRoute.params)
+    
+    this.courseService.getById(this.actvateRoute.snapshot.params['id'])
+    .subscribe(data=>{
+      this.course=data
+      
+    }) 
   }
 
 }

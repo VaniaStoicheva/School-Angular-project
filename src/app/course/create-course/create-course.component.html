@@ -3,7 +3,7 @@
             <div class="form">
                
                 <form #createForm="ngForm" (ngSubmit)="handleCreate(createForm.value)">
-                    <label for="name">Name</label>
+                    <label for="name">Име на курс</label>
                     <input 
                     type="text" id="name" 
                     name="name"
@@ -12,7 +12,7 @@
                     required
                     ngModel>
                     <p class="error-message" *ngIf="nameInput.invalid && nameInput.touched">Please enter valid course name!</p>
-                    <label for="name">Teachers</label>
+                    <label for="name">Преподавател</label>
                     <input 
                     type="text" id="teacher" 
                     name="teacher"
@@ -21,7 +21,7 @@
                     ngModel
                     >
                     <p class="error-message" *ngIf="teacherInput.invalid && teacherInput.touched">Please enter valid teacher name!</p>
-                    <label for="name">Duration</label>
+                    <label for="name">Продължителност</label>
                     <input 
                     type="number" id="duration" 
                     name="duration"
@@ -30,7 +30,7 @@
                     ngModel
                     >
                     <p class="error-message" *ngIf="durationInput.invalid && durationInput.touched">Please enter valid number for duration!</p>
-                    <label for="name">Description</label>
+                    <label for="name">Описание</label>
                     <textarea 
                     id="descroption" 
                     name="description"
@@ -40,7 +40,7 @@
                     >
                     </textarea>
                     <p class="error-message" *ngIf="descriptionInput.invalid && descriptionInput.touched">Please enter description!</p>
-                    <label for="image">ImageUrl</label>
+                    <label for="image">Снимка</label>
                     <input 
                     type="text" id="imgURL" 
                     name="imgURL"
@@ -50,6 +50,9 @@
                     ngModel
                     >
                     <p class="error-message" *ngIf="imgUrInput.invalid && imgUrInput.touched">Please enter image URL!</p>
-                    <button class="createButton" [disabled]="createForm.invalid" >Create</button>
+                    <button class="createButton" [disabled]="createForm.invalid" >Създай нов курс</button>
+                    <div *ngIf="createSuccess" class="alert alert-success">
+                       Cours successfull created {{registeredUser}}!
+                      </div>
                 </form>
             </div>
