@@ -14,10 +14,13 @@ export class LoginComponent implements OnInit {
 
    public loginFail : boolean;
    isLogged:boolean;
+   username:string;
 
   constructor(
     private authService:AuthenticationService,
-    private router:Router) { }
+    private router:Router) {
+      
+     }
 
   ngOnInit() {
   }
@@ -41,6 +44,7 @@ export class LoginComponent implements OnInit {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
+    
     this.loginFail = false;
     this.isLogged=true;
     this.router.navigate(['/']);

@@ -7,10 +7,14 @@ import { AuthenticationService } from './user/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(
-    
-    private authService : AuthenticationService
-  ) { 
-    
+
+  username:string;
+
+  get isLogged(){
+    return this.authService.isLogged();
+  }
+
+  constructor(private authService : AuthenticationService) { 
+    this.username = localStorage.getItem('username');
   }
 }

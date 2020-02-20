@@ -15,19 +15,7 @@ export class AuthenticationService {
 
   private currentAuthtoken : string;
 
-  isLogged() {
-    let authtoken : string = localStorage.getItem('authtoken');
-
-    return authtoken === this.currentAuthtoken;
-  }
-
-  get authtoken() {
-    return this.currentAuthtoken;
-  }
-
-  set authtoken(value : string) {
-    this.currentAuthtoken = value;
-  }
+ 
   
   constructor(
     private http : HttpClient
@@ -65,7 +53,19 @@ export class AuthenticationService {
     )
   }
 
-  
+  isLogged() {
+    let authtoken : string = localStorage.getItem('authtoken');
+
+    return authtoken === this.currentAuthtoken;
+  }
+
+  get authtoken() {
+    return this.currentAuthtoken;
+  }
+
+  set authtoken(value : string) {
+    this.currentAuthtoken = value;
+  }
 
   private createAuthHeaders(type : string) : HttpHeaders {
     if (type === 'Basic') {

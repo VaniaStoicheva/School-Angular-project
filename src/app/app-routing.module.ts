@@ -23,8 +23,8 @@ const routes:Routes=[
     {
         path:'register',
         component:RegisterComponent,
-        /* canActivate :[AuthGuard],
-        data:{
+        canActivate :[AuthGuard],
+        /* data:{
             isLogged:false
         } */
     },
