@@ -6,14 +6,14 @@ import { AuthenticationService } from './user/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+/* export class AuthGuard implements CanActivate {
   constructor(private userService: UserService) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.userService.isLogged==route.data.isLogged;
-  }
-  /* export class AuthGuard implements CanActivate {
+  } */
+  export class AuthGuard implements CanActivate {
     constructor(private authService: AuthenticationService) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-      return this.authService.isLoggedIn==route.data.isLogged;
-    }*/
+      return this.authService.isLogged==route.data.isLogged;
+    }
 } 

@@ -15,7 +15,7 @@ export class AuthenticationService {
 
   private currentAuthtoken : string;
 
-  isLoggedIn() {
+  isLogged() {
     let authtoken : string = localStorage.getItem('authtoken');
 
     return authtoken === this.currentAuthtoken;

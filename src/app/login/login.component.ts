@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
    emailRegex=new RegExp('[A-Z0-9a-z._%+-`]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}');
 
    public loginFail : boolean;
-   isLoggedIn:boolean;
+   isLogged:boolean;
 
   constructor(
     private authService:AuthenticationService,
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
     this.loginFail = false;
-    this.isLoggedIn=true;
+    this.isLogged=true;
     this.router.navigate(['/']);
   }
 }
