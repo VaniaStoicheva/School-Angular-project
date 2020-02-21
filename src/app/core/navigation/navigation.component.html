@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a routerLink="" class="navbar-brand">School</a>
+            <a routerLink="" class="navbar-brand">Allegria School</a>
         </div>
         
         <div class="collapse navbar-collapse">
@@ -13,9 +13,9 @@
                 <li>
                     <a *ngIf="isLogged" routerLink="/course/list">All Courses</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a *ngIf="isLogged" routerLink="/user/profile">Profile user</a>
-                </li>
+                </li> -->
                 <li>
                     <a *ngIf="!isLogged" routerLink="/login">Login</a>
                 </li>
@@ -28,7 +28,7 @@
             </ul>
            
         </div>
-      <p class="welcom" >Hi: {{username}}</p> 
+      <p class="welcom" *ngIf="isLogged" >Hi: {{username}}</p> 
     </div>
 </nav>
 <div class=" w-100">
