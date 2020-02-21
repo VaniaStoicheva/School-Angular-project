@@ -15,11 +15,13 @@ export class ListCoursesComponent implements OnInit {
   //courses:ICourse[];
 username:string;
 public courses;
+avtor:string;
 
   constructor(
     private courseService:CourseService,
    ) {
     this.username = localStorage.getItem('username');
+    
    }
 
   ngOnInit() {

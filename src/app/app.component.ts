@@ -10,6 +10,10 @@ export class AppComponent {
 
   username:string;
 
+  get isReady():boolean{
+   return this.authService.currentUser!==undefined;
+  }
+
   get isLogged(){
     return this.authService.isLogged();
   }

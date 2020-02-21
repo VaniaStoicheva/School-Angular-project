@@ -5,11 +5,11 @@
         <div class="form-group">
             <label for="email">Email address</label>
             <input  #emailInput="ngModel" type="text" name="username" id="email" class="form-control" placeholder="john.doe@domain.bg"
-           
+            [pattern]="emailRegex"
             required
             ngModel>
             <!-- {{emailInput.errors | json}} -->
-            <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email!</p>
+            <p class="alert alert-danger" *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email!</p>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -17,7 +17,7 @@
             minlength="3"
             required
             ngModel>
-            <p class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter valid password!</p>
+            <p class="alert alert-danger" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter valid password!</p>
         </div>
 
         <button [disabled]="loginForm.invalid" class="btn btn-success" >Login</button>

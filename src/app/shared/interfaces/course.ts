@@ -5,4 +5,5 @@ export interface ICourse {
     teacher: string;
     duration: number;
     imgURL: string;
+    author:string;
   }

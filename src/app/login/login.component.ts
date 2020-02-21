@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../user/authentication.service';
 import { IUser } from '../shared/interfaces/user';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-login',
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
+    
     
     this.loginFail = false;
     this.isLogged=true;

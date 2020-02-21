@@ -6,7 +6,8 @@ const appKey = "kid_r1cvWi9zI"
 const appSecret = "ac02ed802c4b49b88056a139aef774cb" 
 const registerUrl = `https://baas.kinvey.com/user/${appKey}`;
 const loginUrl = `https://baas.kinvey.com/user/${appKey}/login`;
-const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
+const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`;
+const authUrl = `https://baas.kinvey.com/user/${appKey}/auth`
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,22 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
 export class AuthenticationService {
 
   private currentAuthtoken : string;
-
+currentUser:{username:string,password:string};
  
   
-  constructor(
-    private http : HttpClient
-  ) { }
+  constructor(private http : HttpClient) {
+  
+    this.http.get(
+      authUrl,
+      {
+        headers: this.createAuthHeaders('Basic')
+      }
+      ).subscribe((user:any)=>{
+      this.currentUser=user;
+    },()=>{
+      this.currentUser=null;
+    })
+  }
 
 
   login(login : IUser) {
@@ -29,7 +40,8 @@ export class AuthenticationService {
      
       {
         headers: this.createAuthHeaders('Basic')
-      }
+      },
+      
     )
   } 
 
@@ -58,7 +70,7 @@ export class AuthenticationService {
 
     return authtoken === this.currentAuthtoken;
   }
-
+ 
   get authtoken() {
     return this.currentAuthtoken;
   }
