@@ -20,7 +20,7 @@ currentUser:{username:string,password:string};
   
   constructor(private http : HttpClient) {
   
-    this.http.get(
+    /* this.http.get(
       authUrl,
       {
         headers: this.createAuthHeaders('Basic')
@@ -29,7 +29,7 @@ currentUser:{username:string,password:string};
       this.currentUser=user;
     },()=>{
       this.currentUser=null;
-    })
+    }) */
   }
 
 
