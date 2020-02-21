@@ -17,4 +17,5 @@ export class AppComponent {
   constructor(private authService : AuthenticationService) { 
     this.username = localStorage.getItem('username');
   }
+
 }

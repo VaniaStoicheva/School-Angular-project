@@ -18,10 +18,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateCourseComponent,
-        /* canActivate :[AuthGuard],
+        // canActivate :[AuthGuard],
         data:{
           isLogged:true
-        } */
+        } 
       },
       {
         path: 'list',

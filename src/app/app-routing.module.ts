@@ -14,18 +14,18 @@ const routes:Routes=[
     {
         path:'login',
         component:LoginComponent,
-        /* canActivate:[AuthGuard],
+         //canActivate:[AuthGuard],
         data:{
-            isLoggedIn:false
-        } */
+            isLogged:false
+        } 
     },
     {
         path:'register',
         component:RegisterComponent,
         //canActivate :[AuthGuard],
-        /* data:{
+         data:{
             isLogged:false
-        } */
+        } 
     },
     {
         path:'**',
