@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tap, shareReplay } from 'rxjs/operators';
 import { IUser } from '../shared/interfaces/user';
 
 const appKey = "kid_r1cvWi9zI" 
@@ -49,7 +50,9 @@ export class AuthenticationService {
         headers: this.createAuthHeaders('Basic')
       },
       
-    )
+    ).pipe(tap((user:any)=>{
+      this.currentUser=user
+    }))
   } 
 
   register(register : IUser) {
@@ -69,7 +72,9 @@ export class AuthenticationService {
       {
         headers: this.createAuthHeaders('Kinvey')
       }
-    )
+    ).pipe(tap(() => {
+      this.currentUser = null;
+    }));
   }
 
   isLogged() {

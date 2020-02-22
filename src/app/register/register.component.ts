@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   public registerSuccess : boolean;
   public registerFail : boolean;
   isLoggedIn:boolean;
+  username:string;
 
   constructor( 
     private authService:AuthenticationService,
