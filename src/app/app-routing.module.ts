@@ -14,7 +14,7 @@ const routes:Routes=[
     {
         path:'login',
         component:LoginComponent,
-         canActivate:[AuthGuard],
+         //canActivate:[AuthGuard],
         data:{
             isLogged:false
         } 
@@ -22,7 +22,7 @@ const routes:Routes=[
     {
         path:'register',
         component:RegisterComponent,
-        canActivate :[AuthGuard],
+       // canActivate :[AuthGuard],
          data:{
             isLogged:false
         } 

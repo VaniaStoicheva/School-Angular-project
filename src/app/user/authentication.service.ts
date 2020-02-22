@@ -15,21 +15,28 @@ const authUrl = `https://baas.kinvey.com/user/${appKey}/auth`
 export class AuthenticationService {
 
   private currentAuthtoken : string;
-currentUser:{username:string,password:string};
+
+  currentUser:string;
  
+  isLoggedIn(){
+    return !!this.currentUser;
+  }
   
   constructor(private http : HttpClient) {
+  this.currentUser=localStorage.getItem('username'); 
   
-    /* this.http.get(
+  
+     /* this.http.get(
       authUrl,
+      
       {
-        headers: this.createAuthHeaders('Basic')
+        headers: this.createAuthHeaders('Kinvey')
       }
       ).subscribe((user:any)=>{
       this.currentUser=user;
     },()=>{
       this.currentUser=null;
-    }) */
+    })  */
   }
 
 

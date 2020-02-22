@@ -26,15 +26,17 @@ const routes: Routes = [
       {
         path: 'list',
         component: ListCoursesComponent,
-       
+        data:{
+          isLogged:true
+        } 
       },
       {
         path: 'detail/:id',
         component: DetailCourseComponent,
-       /*  canActivate :[AuthGuard],
+         //canActivate :[AuthGuard],
         data:{
           isLogged:true
-        } */
+        } 
       }
     ]
   }

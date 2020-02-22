@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
    public loginFail : boolean;
    isLogged:boolean;
+   isLoggedIn:boolean;
    username:string;
 
   constructor(
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
      }
 
   ngOnInit() {
+   
   }
 
   handleLogin(user:IUser){
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit {
     
     this.loginFail = false;
     this.isLogged=true;
+    this.isLoggedIn=true;
     this.router.navigate(['/']);
   }
 }

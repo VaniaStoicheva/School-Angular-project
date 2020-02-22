@@ -12,12 +12,12 @@ import { Observable } from 'rxjs';
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.userService.isLogged==route.data.isLogged;
   } */
- /*  export class AuthGuard implements CanActivate {
+  export class AuthGuard implements CanActivate {
     constructor(private authService: AuthenticationService) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-      return this.authService.isLogged==route.data.isLogged;
-    } */
-    export class AuthGuard implements CanActivate {
+      return this.authService.isLogged===route.data.isLogged;
+    } 
+   /*  export class AuthGuard implements CanActivate {
       constructor(private router:Router){}
       canActivate(
         next: ActivatedRouteSnapshot,
@@ -27,5 +27,5 @@ import { Observable } from 'rxjs';
           }
         return true;
       }
-      
+       */
     }

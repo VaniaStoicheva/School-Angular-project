@@ -13,6 +13,9 @@ export class NavigationComponent implements OnInit {
   get currentUser(){
     return this.userService.currentUser;
   }
+  get isReady():boolean{
+    return this.authService.currentUser!==undefined;
+   }
   get isLogged(){
     return this.authService.isLogged();
   }
