@@ -1,0 +1,35 @@
+Shcool-Angular-22.2.2020
+
+защитен проект работят :
+*създаване на курс
+*всички курсове
+*детаили за курса
+*основна инф за курса за нелогнати 
+*логин
+*регистрация
+*навигацията работи за логнати и нелогнати 
+*логаут който изчиства локал сторито
+
+back-end:Kinvey -School-Angular-2020
+
+Проблемi:
+при логнат потребител ако се рефрешне страницата навигацията се променя на логин и регистрация като аутокена и усернаме в локалстори си стоят
+има аутгард но не работ коректно затов е закоментиран, интерсептора не работи заради kinvey,user profilе не е направен.
+Трябва в бд да се направи връзка между усер и курс :course-> autor; user->courses; направено е само в интерфейсите но в бд не е и няма заявки в service
+
+Друг работещ проект на Angular e C:\Users\HP\Desktop\stari danni\disk D\JS Web-2017\Angular2\BookStore\bookstore   back-end:Kinvey
+
+
+read.me
+School project е сайт в който са представени курсове предлага онлойан училище 'Allegria'.Когато потрбител не е логнат с потребителско име и парола може да види 
+основна информация за курсовете които се предлагат в училището.След успешна регистрация и вход се вижда по-подробна информация за курсовете.Има възможност да се
+разгледа и по-детайлна информация за всери курс при успешен вход.За администратори от училището при коректен вход имат възможност да добавят нови курсове. 
+
+School project is a site that offers courses offered by the online school 'Allegria'. When a user is not logged in with a username and password he can see
+basic information about the courses offered at the school.After successful registration and entry, more detailed information about the courses is visible.
+Consider also more detailed information on complete course upon successful entry. For administrators of the correct entry school have the opportunity to add new courses.
+
+This application develop by VueJS, the design is done with Vutify, for remote server communication and authentication was used Firebase.
+This application is an online bookstore that offers users books they can buy. When a user is not logged in with a username and password he can see
+basic information about the books like title, author, and genre.Аfter successful registration, the user can view more detailed information for each 
+individual book as a description and price.
